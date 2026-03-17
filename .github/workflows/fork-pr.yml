@@ -48,4 +48,4 @@ jobs:
             - Uses safer scripted refactoring
           base: main
           # IMPORTANT: specify upstream repo
-          repository: original-owner/wage-project
+          repository: sohailsafdar-official1/wage-project
