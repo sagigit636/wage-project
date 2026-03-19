@@ -20,7 +20,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-
+      
+      # The new Added confidentiality Test
+      - name: Check Staff ID confidentiality
+        run: |
+          python scripts/check_staff_id_confidentiality.py
+      
+      #Linting steps
       - name: Install linter
         run: |
           pip install flake8
