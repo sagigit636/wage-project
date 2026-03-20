@@ -2,6 +2,7 @@ import re
 import sys
 from pathlib import Path
 
+
 def scan_file(file_path):
     content = Path(file_path).read_text()
 

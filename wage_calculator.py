@@ -14,6 +14,7 @@ class Staff:
         print(f"Hours Worked: {self.hours_worked}")
         print(f"Total Wage: £{self.calculate_wage()}")
 
+
 def test_func():
     # Taking user input
     staff_id = input("Enter Staff ID: ")
@@ -24,5 +25,6 @@ def test_func():
 
     # Display results
     staff_member.display_details()
+
 
 test_func()
