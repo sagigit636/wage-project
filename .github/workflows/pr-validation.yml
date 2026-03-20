@@ -2,7 +2,7 @@ name: PR Validation + Auto Approve
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, ClassExample1]
     types: [opened, synchronize]
 
 jobs:
