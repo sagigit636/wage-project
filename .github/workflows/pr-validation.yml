@@ -55,14 +55,14 @@ jobs:
           flake8 . --max-line-length=100
 
       # Auto approve PR
-      - name: Auto approve PR
-        uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Auto approve PR
+#        uses: hmarr/auto-approve-action@v3
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Auto merge PR if checks pass
-      - name: Enable auto-merge
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          merge-method: squash
+#      - name: Enable auto-merge
+#        uses: peter-evans/enable-pull-request-automerge@v3
+#        with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          merge-method: squash
