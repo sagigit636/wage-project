@@ -2,6 +2,7 @@ from pathlib import Path
 
 FILE_PATH = Path("wage_calculator.py")
 
+
 def transform_code(content: str) -> str:
     # Replace variable names safely
     content = content.replace("hours_worked", "days_worked")
