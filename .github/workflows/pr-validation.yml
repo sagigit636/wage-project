@@ -18,7 +18,7 @@ jobs:
     # The new Added confidentiality Test
       - name: Check Staff ID confidentiality
         run: |
-          python scripts/check_staff_id_confidentiality.py
+          python ./scripts/check_staff_id_confidentiality.py
 
   lint-and-approve:
     runs-on: ubuntu-latest
