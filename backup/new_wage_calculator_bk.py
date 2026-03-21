@@ -21,7 +21,7 @@ def test_func():
     hours = float(input("Enter number of days worked: "))
 
     # Create object
-    staff_member = Staff(staff_id, hours)
+#    staff_member = Staff(staff_id, hours)
 
     # Display results
     staff_member.display_details()
