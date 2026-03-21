@@ -49,6 +49,3 @@ jobs:
             - Replaces hourly rate with daily rate (£80/day)
             - Updates variable names (hours → days)
             - Uses safer scripted refactoring
-          base: main
-          # IMPORTANT: specify upstream repo
-          push-to-fork: true
