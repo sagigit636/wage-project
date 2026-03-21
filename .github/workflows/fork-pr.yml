@@ -3,6 +3,9 @@ name: Fork PR - Convert Hourly to Daily Rate
 on:
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   create-pr:
     runs-on: ubuntu-latest
@@ -18,7 +21,7 @@ jobs:
 
       - name: Create branch
         run: |
-          git checkout -b feature/daily-rate-update
+          git checkout -b feature/daily-rate-update || git checkout feature/daily-rate-update
 
       - name: Run refactor script
         run: |
@@ -29,7 +32,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add .
-          git commit -m "Refactor: switch from hourly rate to daily rate"
+          git commit -m "Refactor: switch from hourly rate to daily rate" || echo "No changes to commit"
 
       - name: Push branch to fork
         run: |
@@ -48,4 +51,4 @@ jobs:
             - Uses safer scripted refactoring
           base: main
           # IMPORTANT: specify upstream repo
-          repository: sohailsafdar-official1/wage-project
+          push-to-fork: true
