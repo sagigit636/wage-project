@@ -35,6 +35,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
           branch: feature/daily-rate-update
           commit-message: "Refactor: switch from hourly rate to daily rate"
           title: "Refactor: Hourly → Daily wage calculation"
