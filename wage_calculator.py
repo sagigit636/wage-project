@@ -1,25 +1,28 @@
+import getpass
+
 class Staff:
     def __init__(self, staff_id, days_worked):
-        self.staff_id = staff_id
+        self._staff_id = staff_id  # store privately
         self.days_worked = days_worked
         self.base_wage = 50        # weekly base wage in pounds
         self.daily_rate = 10       # daily rate in pounds
 
     def calculate_wage(self):
-        total_wage = self.base_wage + (self.days_worked * self.daily_rate)
-        return total_wage
+        return self.base_wage + (self.days_worked * self.daily_rate)
+
+    def get_masked_id(self):
+        # Fully mask staff ID: same length of asterisks
+        return '*' * len(self._staff_id)
 
     def display_details(self):
-        # Mask all but last 3 characters of staff ID
-        masked_id = '*' * max(len(self.staff_id) - 3, 0) + self.staff_id[-3:]
-        print(f"Staff ID: {masked_id}")
+        print(f"Staff ID: {self.get_masked_id()}")
         print(f"Days Worked: {self.days_worked}")
         print(f"Total Wage: £{self.calculate_wage()}")
 
 
 def test_func():
-    # Taking user input
-    staff_id = input("Enter Staff ID: ")
+    # Secure input: Staff ID hidden while typing
+    staff_id = getpass.getpass("Enter Staff ID (input hidden): ")
     days = float(input("Enter number of days worked: "))
 
     # Create object
