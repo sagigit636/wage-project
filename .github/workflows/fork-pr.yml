@@ -3,6 +3,10 @@ name: Fork PR - Convert Hourly to Daily Rate
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -19,7 +23,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Create branch
+      - name: Create or switch branch
         run: |
           git checkout -b feature/daily-rate-update || git checkout feature/daily-rate-update
 
@@ -27,22 +31,12 @@ jobs:
         run: |
           python scripts/update_to_daily_rate.py
 
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add .
-          git commit -m "Refactor: switch from hourly rate to daily rate" || echo "No changes to commit"
-
-      - name: Push branch to fork
-        run: |
-          git push origin feature/daily-rate-update
-
       - name: Create Pull Request to upstream
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: feature/daily-rate-update
+          commit-message: "Refactor: switch from hourly rate to daily rate"
           title: "Refactor: Hourly → Daily wage calculation"
           body: |
             This PR updates the wage calculation:
